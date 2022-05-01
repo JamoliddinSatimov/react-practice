@@ -1,0 +1,19 @@
+.raunded img{
+    width: 100%;
+    
+}
+.raunded{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%!important;
+    overflow: hidden;
+    
+    
+}
+#user_page{
+    min-height: 77vh;
+}
+.posts{
+    font-size: 20px;
+    
+}
