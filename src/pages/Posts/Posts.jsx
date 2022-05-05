@@ -17,7 +17,7 @@ export default function Posts() {
   
     const getUserSelect = (user)=>{
             if (user!=='all') {
-            let filteredPosts = posts.filter(item=>item.userId===user)
+            let filteredPosts = posts.filter(item=>item.userId===(+user))
             setFilterPosts(filteredPosts)
             }if (user==="all") {
                 setFilterPosts(posts)
