@@ -18,20 +18,21 @@ export default function User() {
       .then((res) => res.json())
       .then((data) => setPhotos(data))
       .catch((err) => console.error(err));
-  }, []);
-  useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${+params.id}`)
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .catch((err) => console.error(err));
-  }, []);
 
-  useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${+params.id}`)
-      .then((res) => res.json())
-      .then((data) => setPosts(data))
-      .catch((err) => console.error(err));
-  }, []);
+      fetch(`https://jsonplaceholder.typicode.com/users/${+params.id}`)
+        .then((res) => res.json())
+        .then((data) => setUsers(data))
+        .catch((err) => console.error(err));
+
+        fetch(`https://jsonplaceholder.typicode.com/posts?userId=${+params.id}`)
+        .then((res) => res.json())
+        .then((data) => setPosts(data))
+        .catch((err) => console.error(err));
+
+  }, [params.id]);
+ 
+
+  
 
 
   return (

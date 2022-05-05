@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Loader from "../../Loader/Loader";
 
 
 import './Users.css'
@@ -28,6 +27,7 @@ export default function Users() {
           isError: true,
         });
       });
+       // eslint-disable-next-line
   }, []);
   
 

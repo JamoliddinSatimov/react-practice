@@ -20,6 +20,7 @@ export default function Select({getUserSelect}) {
 
     useEffect(()=>{
         getUsetFromSelect(user)
+        // eslint-disable-next-line
     },[user])  
 
 
