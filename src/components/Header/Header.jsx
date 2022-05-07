@@ -11,10 +11,10 @@ export default function Header() {
             <div className='image_card'><Link to="/"><img src={rasm} alt="rasm topilmadi"/></Link></div>
         </div>
         <div className='offset-3 d-flex align-items-center col-2'>
-          <Link to='/users' className='text-decoration-none w-100 btn border btn-secondary'>Users</Link>
+          <Link to='/users' className='text-decoration-none text-black fs-4'>Users</Link>
         </div>
-        <div className=' offset-1 col-2 d-flex align-items-center '>
-          <Link to='/posts' className='text-decoration-none w-100 btn border btn-secondary'>Posts</Link>
+        <div className=' col-2 d-flex align-items-center '>
+          <Link to='/posts' className='text-decoration-none text-black fs-4'>Posts</Link>
         </div>
       </div>
     );

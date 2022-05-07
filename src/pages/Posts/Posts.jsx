@@ -1,31 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { Select } from "../../components";
+import Loader from '../../Loader/Loader'
 
 import './Posts.css'
 
 export default function Posts() {
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState({
+      isLoading:true,
+      isError:false,
+      data:[]
+    });
     const [filterPosts, setFilterPosts]=useState([])
     useEffect(() => {
         fetch("https://jsonplaceholder.typicode.com/posts")
         .then((res) => res.json())
-        .then((data) => setPosts(data))
+        .then((data) => setPosts({...posts,isLoading:false,data:data}))
         .catch((err) => console.error(err));
-
+        // eslint-disable-next-line
     }, []);
   
   
     const getUserSelect = (user)=>{
             if (user!=='all') {
-            let filteredPosts = posts.filter(item=>item.userId===(+user))
+            let filteredPosts = posts.data.filter(item=>item.userId===(+user))
             setFilterPosts(filteredPosts)
             }if (user==="all") {
-                setFilterPosts(posts)
+                setFilterPosts(posts.data)
             }        
     }
 
     useEffect(()=>{
-        setFilterPosts(posts)
+        setFilterPosts(posts.data)
     },[posts])
 
  
@@ -33,17 +38,23 @@ export default function Posts() {
 
   return (
     <div className="row" id="posts_page">
-      <div className="col-6 offset-1">
-      <ul className="list-unstyled">
-            {
-                filterPosts.map(post=>(
-                    <div key={post.id}><li className="border bg-light shadow mt-1 rounded p-2 d-inline-block">{post.title}</li></div>
-                ))
-            }
+      <div className="col-7 offset-1">
+        <h2 className="text-center">Posts</h2>
+      <ul>
+          {
+            posts.isLoading?<Loader/>:
+                   filterPosts.map(post=>(
+                       <li  key={post.id}>
+                         <h5 className="fw-bold">{post.title}</h5>
+                         <p>{post.body}</p>
+                       </li>
+                   ))
+          }
         </ul>
+        
       </div>
         
-      <div className="col-4">
+      <div className="col-3 mt-1">
         <Select getUserSelect={getUserSelect}/>
       </div>
     </div>

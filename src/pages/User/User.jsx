@@ -13,8 +13,7 @@ export default function User() {
 
   useEffect(() => {
     fetch(
-      `https://jsonplaceholder.typicode.com/photos?albumId=1&id=${+params.id}`
-    )
+      `https://jsonplaceholder.typicode.com/photos?albumId=1&id=${+params.id}`)
       .then((res) => res.json())
       .then((data) => setPhotos(data))
       .catch((err) => console.error(err));
@@ -57,10 +56,13 @@ export default function User() {
         </p>
       </div>
       <div className="col-md-8 d-flex justify-content-center align-items-center">
-        <ul className="list-unstyled w-100">
+        <ul className="w-100">
           {
             posts.length > 0 &&
-            posts.map((post) => <li className="posts bg-light m-1 py-2 px-5" key={post.id}>{post.title}</li>)
+            posts.map((post) => <li key={post.id}>
+              <h5 className="fw-bold">{post.title}</h5>
+              <p>{post.body}</p>
+            </li>)
           }
         </ul>
       </div>
