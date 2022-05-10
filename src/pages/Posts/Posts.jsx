@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+
+
 import { Select } from "../../components";
 import Loader from '../../Loader/Loader'
+import { lang } from "../../components/lang/lang";
+import { LangContext } from "../../context/lang-context";
 
 import './Posts.css'
 
 export default function Posts() {
+    const {lang:til,setLang} = useContext(LangContext)
+
     const [posts, setPosts] = useState({
       isLoading:true,
       isError:false,
@@ -39,7 +45,7 @@ export default function Posts() {
   return (
     <div className="row" id="posts_page">
       <div className="col-7 offset-1">
-        <h2 className="text-center">Posts</h2>
+        <h2 className="text-center">{lang[til].postsPage.posts}</h2>
       <ul>
           {
             posts.isLoading?<Loader/>:

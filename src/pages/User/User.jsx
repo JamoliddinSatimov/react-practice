@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+
+import { lang } from "../../components/lang/lang";
+import { LangContext } from "../../context/lang-context";
 
 import "./User.css";
 
@@ -9,6 +12,7 @@ export default function User() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   
+  const {lang:til,setLang} = useContext(LangContext)
 
 
   useEffect(() => {
@@ -30,32 +34,32 @@ export default function User() {
 
   }, [params.id]);
  
-
+console.log(lang);
   
 
 
   return (
     <div className="row" id="user_page">
-      <div className="col-md-4 mt-1 d-flex align-items-center flex-column bg-light shadow">
-        <div className="img_box raunded my-3">
+      <div id="dark-left" className="col-md-4  d-flex align-items-center flex-column bg-light shadow">
+        <div className="img_box raunded my-3 ">
           {photos.map((photo) => (
             <img key={photo.id} src={photo.url} alt=" " />
           ))}
         </div>
         <p className="mt-2">
-          <strong>Name: </strong>
+          <strong>{lang[til].userPage.name}: </strong>
           {users.name}
         </p>
         <p className="mt-2">
-          <strong>Username: </strong>
+          <strong>{lang[til].userPage.userName}: </strong>
           {users.username}
         </p>
         <p className="mt-2">
-          <strong>Email: </strong>
+          <strong>{lang[til].userPage.email}: </strong>
           {users.email}
         </p>
       </div>
-      <div className="col-md-8 d-flex justify-content-center align-items-center">
+      <div className="col-md-8 d-flex justify-content-center align-items-center pt-2">
         <ul className="w-100">
           {
             posts.length > 0 &&

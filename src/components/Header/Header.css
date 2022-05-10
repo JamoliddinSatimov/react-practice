@@ -1,3 +1,25 @@
 Link{
     text-decoration: none;
 }
+.actives{
+    text-decoration: underline;
+    color: orange !important;;
+}
+#icon-box{
+    width: 20px;
+    height: 20px;
+}
+#icon-box img{
+    width: 100%;
+}
+.header-dark{
+    background-color:#1F1F1F;
+    
+}
+.header-dark .link{
+    color: white!important;
+}
+.header-dark select{
+    background-color:#2D2D2D;
+    color:white;
+}
