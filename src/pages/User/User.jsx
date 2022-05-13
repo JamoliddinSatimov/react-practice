@@ -12,7 +12,7 @@ export default function User() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   
-  const {lang:til,setLang} = useContext(LangContext)
+  const {lang:til} = useContext(LangContext)
 
 
   useEffect(() => {

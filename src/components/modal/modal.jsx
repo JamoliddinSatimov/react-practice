@@ -15,17 +15,19 @@ export default function Modal({modal,setModal, children, title}) {
        }
     }
 
-    const escCloseModal = (e)=>{
-        if (e.keyCode===27) {
-            setModal(false)
-        }
-    }
+    
     useEffect(()=>{
+        const escCloseModal = (e)=>{
+            if (e.keyCode===27) {
+                setModal(false)
+            }
+        }
         if (modal) {
             window.addEventListener("keyup", escCloseModal)
         }
 
         return ()=>window.removeEventListener("keyup", escCloseModal);
+        // eslint-disable-next-line
     },[modal])
 
   return (

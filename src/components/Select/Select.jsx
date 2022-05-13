@@ -8,7 +8,7 @@ export default function Select({getUserSelect}) {
     const [users,setUsers] = useState([])
     const [user,setUser] = useState('all')
 
-    const {lang:til,setLang} = useContext(LangContext)
+    const {lang:til} = useContext(LangContext)
     
 
     function getUsetFromSelect(user){

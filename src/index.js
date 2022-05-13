@@ -6,6 +6,7 @@ import {BrowserRouter} from 'react-router-dom';
 import App from './App';
 import ThemeProvider from './context/theme-context';
 import LangProvider from './context/lang-context';
+import { AuthProvider } from './context/authContext';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -19,7 +20,9 @@ root.render(
     <BrowserRouter>
       <LangProvider>
         <ThemeProvider>
-          <App />
+          <AuthProvider>
+            <App />
+          </AuthProvider>
         </ThemeProvider>
       </LangProvider>
     </BrowserRouter>

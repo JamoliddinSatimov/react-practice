@@ -10,7 +10,7 @@ import './Users.css';
 
 export default function Users() {
 
-  const {lang:til, setLang} = useContext(LangContext)
+  const {lang:til} = useContext(LangContext)
 
   const [users, setUsers] = useState({
     isLoading: true,

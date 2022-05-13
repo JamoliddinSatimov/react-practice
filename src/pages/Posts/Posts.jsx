@@ -9,7 +9,7 @@ import { LangContext } from "../../context/lang-context";
 import './Posts.css'
 
 export default function Posts() {
-    const {lang:til,setLang} = useContext(LangContext)
+    const {lang:til} = useContext(LangContext)
 
     const [posts, setPosts] = useState({
       isLoading:true,
